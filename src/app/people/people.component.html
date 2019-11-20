@@ -1,0 +1,39 @@
+<section>
+        <div class="container">
+            
+            <div class="row">
+               
+    
+                <div class="col-md-4"></div>
+    
+                
+    
+                <div class="col-md-4 mt-5">
+                    <div class="card profile-card-3 " >
+                        <div class="background-block">
+                            <img src="../../assets/Images/coffee-beans.jpg"
+                                alt="profile-sample1" class="background" />
+                        </div>
+                        <div class="profile-thumb-block">
+                            <img src="../../assets/Images/coffee-beans.jpg" alt="profile-image" class="profile" />
+                        </div>
+                        <div class="card-content">
+                            <h2>{{result.firstname}} {{result.lastname}}<small>@{{result.username}}</small></h2>
+                                <p>Followers : {{result.followers.length}}
+                                    <span>Following : {{result.following.length}}</span>
+                                </p>
+                                
+                                <div class="icon-block">
+                                    <a style="cursor: pointer;" style="margin-bottom: 10px;" [hidden]="!myVar" (click)="follow(result.userid)"><span>Follow</span></a><br>
+                                    <a style="cursor: pointer;" [hidden]="myVar" (click)="unfollow(result.userid)"><span>Unfollow</span></a>
+                                </div>
+                        </div>
+                    </div>
+                </div>
+    
+                <div class="col-md-4"></div>
+    
+    
+            </div>
+        </div>
+    </section>

@@ -1,0 +1,26 @@
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+<!------ Include the above in your HEAD tag ---------->
+
+<div class="container">
+	<div class="row">
+		<div class="list-group" *ngFor="let follow of following">
+            <div class="list-group-item clearfix">
+                <div class="profile-teaser-left">
+                    <div class="profile-img"><img src="../../assets/Images/close-up.jpg"/></div>
+                </div>
+                <div class="profile-teaser-main">
+                    <h2 class="profile-name">{{follow.firstname}} {{follow.lastname}}</h2>
+                    <div class="profile-info">
+                        <div class="info"><span class="card-title mr-2">@{{follow.username}}</span></div>
+                        <div class="info">
+                                <button class="btn btn-outline-dark "  style="float:right"  (click)="unfollow(follow.userid)"> Unfollow</button>
+                            </div>
+                    </div>
+                </div>
+            </div><!-- item -->
+            
+        </div>
+	</div>
+</div>

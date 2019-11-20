@@ -1,0 +1,130 @@
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+<div class="container emp-profile">
+    <form method="post">
+        <div class="row">
+            <div class="col-md-4">
+                <div class="profile-img">
+                    <img src="../../assets/Images/user.png" alt="" />
+                </div>
+                <div class="mt-3 p-3  align-items-center" >
+                    <button routerLink="/followers">Followers</button>
+                    <button routerLink="/following">Following</button>
+                </div>
+            </div>
+
+            <div class="col-md-6">
+                <div class="profile-head">
+                    <h5>
+                        {{result.username}}
+                    </h5>
+                    <h6>
+                        {{result.status}}
+                    </h6>
+                    <ul class="nav nav-tabs" id="myTab" role="tablist">
+                        <li class="nav-item">
+                            <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab"
+                                aria-controls="home" aria-selected="true">About</a>
+                        </li>
+
+                    </ul>
+                </div>
+
+
+                
+                <div class="row">
+                        <div class="col-md-6">
+                            <label>User Id</label>
+                        </div>
+                        <div class="col-md-6">
+                            <p>{{result.userid}}</p>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <label>UserName</label>
+                        </div>
+                        <div class="col-md-6">
+                            <p>{{result.username}}</p>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <label>FirstName</label>
+                        </div>
+                        <div class="col-md-6">
+                            <p>{{result.firstname}}</p>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <label>LastName</label>
+                        </div>
+                        <div class="col-md-6">
+                            <p>{{result.lastname}}</p>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <label>Email</label>
+                        </div>
+                        <div class="col-md-6">
+                            <p>{{result.email}}</p>
+                        </div>
+                    </div>
+    
+                    <div class="row">
+                        <div class="col-md-6">
+                            <label>Profession</label>
+                        </div>
+                        <div class="col-md-6">
+                            <p>{{result.status}}</p>
+                        </div>
+                    </div>
+    
+
+            </div>
+            <div class="col-md-2" (click)="editProfile()">
+                <input type="submit" class="profile-edit-btn" name="btnAddMore" value="Edit Profile" />
+            </div>
+        </div>
+
+        <div class="row">
+            
+            <div class="col-md-12">
+
+
+                
+
+                <ul class="nav nav-tabs" id="myTab" role="tablist">
+                    <li class="nav-item">
+                        <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab"
+                            aria-controls="home" aria-selected="true">Timeline of my Blogs</a>
+                    </li>
+
+                </ul>
+
+
+
+               
+
+                <div class="card text-center mb-3" *ngFor="let blog of blogs">
+                    <div class="card-header" >
+                        {{blog.title}}
+                    </div>
+                    <div class="card-body">
+                        <h5 class="card-title">{{blog.body}}</h5>
+                        <a class="btn btn-primary m-3" [routerLink]="['blog',blog.id]">Edit blog</a>
+                        <button class="btn btn-danger m-3" (click)="delete(blog.id)">Delete blog</button>
+                    </div>
+                    <div class="card-footer text-muted" >
+                        {{blog.createDate | date:'medium'}}
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </form>
+</div>

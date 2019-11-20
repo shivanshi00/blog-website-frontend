@@ -1,0 +1,81 @@
+
+<link href="//netdna.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" />
+<div class="jumbotron">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 offset-md-3">
+                <h2>Register</h2>
+                <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+                    <div class="form-group">
+                        <label>User Name</label>
+                        <input type="text" formControlName="username" class="form-control"
+                            [ngClass]="{ 'is-invalid': submitted && f.username.errors }" [(ngModel)]="uname" (keyup)="change(uname)"  />
+                        <div *ngIf="submitted && f.username.errors" class="invalid-feedback">
+                            <div *ngIf="f.username.errors.required">Username is required</div>
+                            <div *ngIf="f.username.errors.minlength">UserName must be at least 6 characters</div>
+                        </div>
+                        <span>{{alert}}</span>
+                    </div>
+                    <div class="form-group">
+                        <label>First Name</label>
+                        <input type="text" formControlName="firstName" [(ngModel)]="fname" class="form-control"
+                            [ngClass]="{ 'is-invalid': submitted && f.firstName.errors }" [(ngModel)]="fname" />
+                        <div *ngIf="submitted && f.firstName.errors" class="invalid-feedback">
+                            <div *ngIf="f.firstName.errors.required">First Name is required</div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label>Last Name</label>
+                        <input type="text" formControlName="lastName" [(ngModel)]="lname" class="form-control"
+                            [ngClass]="{ 'is-invalid': submitted && f.lastName.errors }" [(ngModel)]="lname" />
+                        <div *ngIf="submitted && f.lastName.errors" class="invalid-feedback">
+                            <div *ngIf="f.lastName.errors.required">Last Name is required</div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label>Email</label>
+                        <input type="text" formControlName="email" class="form-control" [(ngModel)]="email"
+                            [ngClass]="{ 'is-invalid': submitted && f.email.errors }" [(ngModel)]="email" />
+                        <div *ngIf="submitted && f.email.errors" class="invalid-feedback">
+                            <div *ngIf="f.email.errors.required">Email is required</div>
+                            <div *ngIf="f.email.errors.email">Email must be a valid email address</div>
+                        </div>
+                    </div>
+                   
+                  <div class="form-group">
+                        <label>Description</label>
+                        <input type="text" formControlName="status" [(ngModel)]="status" class="form-control"
+                            [ngClass]="{ 'is-invalid': submitted && f.lastName.errors }" [(ngModel)]="status" />
+                        <div *ngIf="submitted && f.status.errors" class="invalid-feedback">
+                            <div *ngIf="f.status.errors.required">Description is required</div>
+                        </div>
+                    </div>
+
+
+                    <div class="form-group">
+                        <label>Password</label>
+                        <input type="password" formControlName="password" [(ngModel)]="pass" class="form-control"
+                            [ngClass]="{ 'is-invalid': submitted && f.password.errors }" [(ngModel)]="pass" />
+                        <div *ngIf="submitted && f.password.errors" class="invalid-feedback">
+                            <div *ngIf="f.password.errors.required">Password is required</div>
+                            <div *ngIf="f.password.errors.minlength">Password must be at least 6 characters</div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label>Confirm Password</label>
+                        <input type="password" formControlName="confirmPassword" class="form-control"
+                            [ngClass]="{ 'is-invalid': submitted && f.confirmPassword.errors }" />
+                        <div *ngIf="submitted && f.confirmPassword.errors" class="invalid-feedback">
+                            <div *ngIf="f.confirmPassword.errors.required">Confirm Password is required</div>
+                            <div *ngIf="f.confirmPassword.errors.mustMatch">Passwords must match</div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <button class="btn btn-primary">Register</button>
+                    </div>
+                    <a class="d-block text-center mt-2 small" href="login">Login</a>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
